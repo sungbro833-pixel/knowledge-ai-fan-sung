@@ -1,1 +1,233 @@
 
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knowledge Fun AI Studio</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1020;color:#f5f7ff;font-family:Arial,sans-serif}
+header{padding:18px;background:#121a30;border-bottom:1px solid #293653}
+.logo{font-size:22px;font-weight:bold;color:#8c9cff}
+header p{color:#aab5d0;font-size:13px}
+main{padding:15px;max-width:1000px;margin:auto}
+.hero{padding:24px 18px;background:linear-gradient(135deg,#222e60,#42266b);border-radius:18px}
+.hero h1{font-size:26px;margin:0 0 10px}
+.hero p{color:#d7dcf8;line-height:1.5}
+.panel{background:#141d33;padding:16px;border:1px solid #293653;border-radius:15px;margin-top:16px}
+h2{font-size:19px;margin:0 0 14px}
+textarea{width:100%;min-height:105px;background:#0c1428;color:white;border:1px solid #405078;border-radius:10px;padding:12px;font-size:15px}
+select{width:100%;padding:12px;margin:7px 0;background:#0c1428;color:white;border:1px solid #405078;border-radius:9px}
+button{background:#6678ff;color:white;border:0;padding:12px 17px;border-radius:9px;font-weight:bold;margin:5px 4px 5px 0}
+button.secondary{background:#293653}
+button:active{opacity:.7}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}
+.card{background:#1b2742;padding:14px;border-radius:12px;border:1px solid #344365}
+.card b{display:block;margin-bottom:7px}
+.card small{color:#aab5d0;line-height:1.4}
+.feature{background:#18233b;padding:12px;border-radius:9px;margin:7px 0;font-size:14px}
+#result{white-space:pre-wrap;color:#a9f0c1;line-height:1.5}
+footer{text-align:center;color:#8491ad;padding:25px;font-size:12px}
+.note{color:#ffc978;font-size:13px;line-height:1.5}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">✦ KNOWLEDGE FUN AI</div>
+  <p>One Platform • Multiple AI Studios • Creative Intelligence</p>
+</header>
+
+<main>
+<section class="hero">
+  <h1>Welcome to Knowledge Fun AI Studio</h1>
+  <p>आपका All-in-One AI Creation Platform. Image, Video, Animation, Story, Voice और Editing के लिए एक ही जगह।</p>
+  <button onclick="document.getElementById('create').scrollIntoView()">Start Creating</button>
+</section>
+
+<section class="panel" id="create">
+  <h2>🧠 AI Creative Brain</h2>
+  <p>अपना काम लिखें। AI Brain के लिए यह शुरुआती Prompt Interface है।</p>
+  <textarea id="prompt" placeholder="उदाहरण: एक सुंदर 3D cartoon baby की 20 सेकंड की कहानी बनाओ..."></textarea>
+
+  <select id="mode">
+    <option value="Automatic">Automatic Mode</option>
+    <option value="Manual">Manual Mode</option>
+  </select>
+
+  <div id="manual" style="display:none">
+    <label>AI Studio चुनें</label>
+    <select id="studio">
+      <option>Image Studio</option>
+      <option>Video Studio</option>
+      <option>Animation Studio</option>
+      <option>Story & Script Studio</option>
+      <option>Voice & Audio Studio</option>
+      <option>Video Editing Studio</option>
+    </select>
+    <label>Style चुनें</label>
+    <select id="style">
+      <option>Realistic</option><option>2D</option><option>3D</option>
+      <option>Anime</option><option>Cartoon</option><option>Cinematic</option>
+    </select>
+  </div>
+
+  <button onclick="understandPrompt()">Understand My Prompt</button>
+  <div id="result"></div>
+  <p class="note">अभी यह केवल Prompt को स्थानीय रूप से समझने का Demo है। वास्तविक AI Generation के लिए API जोड़नी होगी।</p>
+</section>
+
+<section class="panel">
+  <h2>⚡ Main AI Systems</h2>
+  <div class="grid">
+    <div class="card"><b>Knowledge Supreme Brain AI</b><small>मुख्य Controller और Task Planner</small></div>
+    <div class="card"><b>Knowledge Super AI X</b><small>बातचीत और AI Assistant</small></div>
+    <div class="card"><b>Eternal Memory Engine</b><small>यूज़र की अनुमति से Memory</small></div>
+    <div class="card"><b>Knowledge Research AI X</b><small>Research और Fact Checking</small></div>
+    <div class="card"><b>AI Council System</b><small>अलग AI के परिणामों की तुलना</small></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>🎨 AI Studios – 90 Features</h2>
+  <div id="studios"></div>
+</section>
+
+<section class="panel">
+  <h2>🎬 Video Upload & Analysis</h2>
+  <input type="file" id="videoFile" accept="video/*">
+  <video id="player" controls style="display:none;width:100%;margin-top:12px;border-radius:10px"></video>
+  <p class="note">यहाँ अभी वीडियो Preview उपलब्ध है। AI Video और Audio Analysis के लिए अलग AI Backend चाहिए।</p>
+</section>
+
+<section class="panel">
+  <h2>👤 User Memory & Account</h2>
+  <div class="feature">Conversation History – Planned</div>
+  <div class="feature">Character और Voice Preferences – Planned</div>
+  <div class="feature">My Images, Videos और Projects – Planned</div>
+  <div class="feature">Memory View, Edit, Export और Delete – Planned</div>
+  <p class="note">यूज़र की Memory सुरक्षित रखने के लिए Login और Database जरूरी हैं।</p>
+</section>
+
+<section class="panel">
+  <h2>💎 Membership Plans</h2>
+  <div class="grid">
+    <div class="card">
+      <b>FREE PLAN</b>
+      <p>Rewarded Ad के बाद एक Video Generation का मौका।</p>
+      <small>प्रति वीडियो अधिकतम 30 सेकंड</small>
+    </div>
+    <div class="card">
+      <b>PREMIUM PLAN</b>
+      <p>30 दिन की Membership</p>
+      <small>15 Videos प्रतिदिन • प्रति वीडियो अधिकतम 2 मिनट • Generation पर Ads नहीं</small>
+    </div>
+  </div>
+  <p class="note">Payment, Ads और Membership अभी केवल प्रस्तावित सुविधाएँ हैं।</p>
+</section>
+
+</main>
+
+<footer>
+  KNOWLEDGE FUN AI STUDIO<br>
+  Your Creative AI Universe
+</footer>
+
+<script>
+const data = [
+["AI Image Studio",[
+"AI Image Generator","Realistic Image Generator","2D Image Generator",
+"3D Image Generator","Anime Image Generator","Cartoon Image Generator",
+"Character Image Generator","Background Generator","Thumbnail Generator",
+"Image Editor","Image Upscaler","Image-to-Image Generator"
+]],
+["AI Video Studio",[
+"AI Video Generator","Text-to-Video Generator","Image-to-Video Generator",
+"Video-to-Video Generator","Realistic Video Generator","2D Animation Generator",
+"3D Animation Generator","Anime Video Generator","Cartoon Video Generator",
+"Cinematic Video Generator","Stickman Video Generator","Baby Story Video Generator",
+"Historical Documentary Video Generator","Fantasy Video Generator",
+"Romantic Video Generator","Action Video Generator","Horror Video Generator",
+"Funny Video Generator"
+]],
+["AI Animation Studio",[
+"2D Stickman Animator","3D Stickman Animator","2D Character Animator",
+"3D Character Animator","Anime Animator","Cartoon Animator","Human Animation",
+"Animal Animation","Walking & Running Animation","Fighting Animation",
+"Dancing Animation","Facial Expression Animation","Camera Movement Animator"
+]],
+["AI Story & Script Studio",[
+"AI Story Writer","AI Script Writer","AI Dialogue Generator",
+"AI Storyboard Generator","AI Scene Planner","AI Video Idea Generator",
+"AI Prompt Generator","AI Prompt Enhancer","AI Character Creator",
+"AI Character Sheet Generator","AI Location Creator","AI Location Sheet Generator"
+]],
+["AI Voice & Audio Studio",[
+"AI Voice Generator","Hindi Voiceover Generator","English Voiceover Generator",
+"AI Music Generator","Background Music Generator","Sound Effects Generator",
+"AI Voice Changer","AI Text-to-Speech"
+]],
+["AI Video Editing Studio",[
+"AI Video Editor","Auto Video Cutter","Auto Captions Generator",
+"Subtitle Generator","AI Transition Generator","Background Remover",
+"Audio Enhancer","Video Merger","Video Exporter","Shorts & Reels Maker"
+]],
+["AI Special Studios",[
+"AI Baby Story Studio","AI Anime Love Story Studio","AI Documentary Studio",
+"AI 3D ASMR Studio","AI Gaming Video Studio","AI Educational Video Studio",
+"AI Social Media Content Studio"
+]],
+["AI Assistant & Management",[
+"AI Creative Assistant","AI Research Assistant","AI Prompt Understanding Engine",
+"AI Category Detection Engine","AI Scene Consistency Engine",
+"AI Character Consistency Engine","AI Location Consistency Engine",
+"AI Project Manager","AI File Manager","AI Video Quality Checker"
+]]
+];
+
+const container = document.getElementById("studios");
+data.forEach((group,index)=>{
+  const section = document.createElement("div");
+  section.innerHTML = "<h3>"+(index+1)+". "+group[0]+"</h3>";
+  group[1].forEach(name=>{
+    const item = document.createElement("div");
+    item.className="feature";
+    item.textContent="✦ "+name+"  •  Planned";
+    section.appendChild(item);
+  });
+  container.appendChild(section);
+});
+
+document.getElementById("mode").addEventListener("change",function(){
+  document.getElementById("manual").style.display =
+    this.value==="Manual" ? "block" : "none";
+});
+
+function understandPrompt(){
+  const prompt=document.getElementById("prompt").value.trim();
+  const mode=document.getElementById("mode").value;
+  const result=document.getElementById("result");
+  if(!prompt){
+    result.textContent="पहले अपना Prompt लिखें।";
+    return;
+  }
+  result.textContent =
+    "Prompt प्राप्त हुआ!\n"+
+    "Mode: "+mode+"\n"+
+    "आपका काम: "+prompt+"\n\n"+
+    "यह Prototype Demo है। अभी कोई वास्तविक AI Generation नहीं हुई है। API कनेक्शन अगले चरण में जोड़ा जाएगा।";
+}
+
+document.getElementById("videoFile").addEventListener("change",function(){
+  const file=this.files[0];
+  if(file){
+    const player=document.getElementById("player");
+    player.src=URL.createObjectURL(file);
+    player.style.display="block";
+  }
+});
+</script>
+</body>
+                                     </html>
+  
