@@ -4,137 +4,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Knowledge Fun AI Studio</title>
+<title>Knowledge Fun AI Studio Supreme</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#0b1020;color:#f5f7ff;font-family:Arial,sans-serif}
-header{padding:18px;background:#121a30;border-bottom:1px solid #293653}
-.logo{font-size:22px;font-weight:bold;color:#8c9cff}
-header p{color:#aab5d0;font-size:13px}
-main{padding:15px;max-width:1000px;margin:auto}
-.hero{padding:24px 18px;background:linear-gradient(135deg,#222e60,#42266b);border-radius:18px}
-.hero h1{font-size:26px;margin:0 0 10px}
-.hero p{color:#d7dcf8;line-height:1.5}
-.panel{background:#141d33;padding:16px;border:1px solid #293653;border-radius:15px;margin-top:16px}
+body{margin:0;background:#080d1c;color:#f5f7ff;font-family:Arial,sans-serif}
+header{padding:17px;background:#121b32;border-bottom:1px solid #344365;position:sticky;top:0;z-index:5}
+.logo{font-size:21px;font-weight:bold;color:#9baaff}
+header p{color:#aab5d0;font-size:12px;margin-bottom:0}
+main{padding:14px;max-width:1050px;margin:auto}
+.hero{padding:23px 17px;background:linear-gradient(135deg,#253b79,#542b80);border-radius:18px}
+.hero h1{font-size:25px;margin:0 0 10px}
+p{line-height:1.5}
+.panel{background:#131e35;padding:16px;border:1px solid #2d3e60;border-radius:15px;margin-top:15px}
 h2{font-size:19px;margin:0 0 14px}
-textarea{width:100%;min-height:105px;background:#0c1428;color:white;border:1px solid #405078;border-radius:10px;padding:12px;font-size:15px}
-select{width:100%;padding:12px;margin:7px 0;background:#0c1428;color:white;border:1px solid #405078;border-radius:9px}
-button{background:#6678ff;color:white;border:0;padding:12px 17px;border-radius:9px;font-weight:bold;margin:5px 4px 5px 0}
-button.secondary{background:#293653}
+h3{font-size:16px;color:#aebaff}
+textarea,input,select{width:100%;padding:12px;margin:7px 0;background:#0a1429;color:white;border:1px solid #405078;border-radius:9px;font-size:14px}
+textarea{min-height:110px;resize:vertical}
+button{background:#697cff;color:white;border:0;padding:12px 15px;border-radius:9px;font-weight:bold;margin:5px 3px;cursor:pointer}
+button.secondary{background:#30415f}
+button.danger{background:#b74357}
 button:active{opacity:.7}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}
-.card{background:#1b2742;padding:14px;border-radius:12px;border:1px solid #344365}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.card{background:#1b2945;padding:14px;border-radius:12px;border:1px solid #364968}
 .card b{display:block;margin-bottom:7px}
-.card small{color:#aab5d0;line-height:1.4}
-.feature{background:#18233b;padding:12px;border-radius:9px;margin:7px 0;font-size:14px}
-#result{white-space:pre-wrap;color:#a9f0c1;line-height:1.5}
+.card small{color:#b2bdd5;line-height:1.5}
+.feature{background:#192641;padding:11px;border-radius:9px;margin:7px 0;font-size:13px}
+.status{display:inline-block;background:#174a37;color:#8fffc2;padding:6px 10px;border-radius:20px;font-size:12px}
+.off{background:#542633;color:#ffb7c2}
+.note{color:#ffc978;font-size:12px;line-height:1.5}
+#result{white-space:pre-wrap;color:#a9f0c1;line-height:1.6;margin-top:12px}
+.hidden{display:none}
 footer{text-align:center;color:#8491ad;padding:25px;font-size:12px}
-.note{color:#ffc978;font-size:13px;line-height:1.5}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">✦ KNOWLEDGE FUN AI</div>
-  <p>One Platform • Multiple AI Studios • Creative Intelligence</p>
+ <div class="logo">✦ KNOWLEDGE FUN AI</div>
+ <p>SUPREME BRAIN • ALL-IN-ONE AI CREATION STUDIO</p>
 </header>
 
 <main>
+
 <section class="hero">
-  <h1>Welcome to Knowledge Fun AI Studio</h1>
-  <p>आपका All-in-One AI Creation Platform. Image, Video, Animation, Story, Voice और Editing के लिए एक ही जगह।</p>
-  <button onclick="document.getElementById('create').scrollIntoView()">Start Creating</button>
+ <h1>Welcome to Supreme AI Studio</h1>
+ <p>Image, Video, Animation, Story, Voice, Research और Creative AI का एक ही Platform.</p>
+ <button onclick="document.getElementById('create').scrollIntoView({behavior:'smooth'})">Start Creating</button>
 </section>
 
+<!-- SUPREME BRAIN CONTROL CENTER -->
+<section class="panel">
+ <h2>🧠 Knowledge Supreme Brain AI</h2>
+ <div id="brainStatus" class="status">● Brain ONLINE</div>
+ <p>मुख्य AI Control Center और Task Management System.</p>
+ <button onclick="toggleBrain()" id="brainButton">Turn Brain OFF</button>
+ <div class="grid">
+  <div class="card"><b>Brain Control</b><small id="brainText">System Active</small></div>
+  <div class="card"><b>Working Mode</b><small id="modeText">Automatic</small></div>
+  <div class="card"><b>Task Manager</b><small>Prompt Routing Demo</small></div>
+  <div class="card"><b>AI Connection</b><small>Backend Not Connected</small></div>
+ </div>
+ <p class="note">Brain Control अभी वेबसाइट के Demo Interface को नियंत्रित करता है। असली AI चलाने के लिए Backend और API आवश्यक हैं।</p>
+</section>
+
+<!-- CREATE -->
 <section class="panel" id="create">
-  <h2>🧠 AI Creative Brain</h2>
-  <p>अपना काम लिखें। AI Brain के लिए यह शुरुआती Prompt Interface है।</p>
-  <textarea id="prompt" placeholder="उदाहरण: एक सुंदर 3D cartoon baby की 20 सेकंड की कहानी बनाओ..."></textarea>
+ <h2>⚡ AI Creative Control Center</h2>
+ <label>अपना काम लिखें</label>
+ <textarea id="prompt" placeholder="उदाहरण: एक realistic 3D baby की 30 सेकंड की कहानी बनाओ..."></textarea>
 
-  <select id="mode">
-    <option value="Automatic">Automatic Mode</option>
-    <option value="Manual">Manual Mode</option>
+ <label>Working Mode</label>
+ <select id="mode">
+  <option value="Automatic">Automatic Mode</option>
+  <option value="Manual">Manual Mode</option>
+ </select>
+
+ <div id="manual" class="hidden">
+  <label>AI Studio</label>
+  <select id="studio">
+   <option>Image Studio</option>
+   <option>Video Studio</option>
+   <option>Animation Studio</option>
+   <option>Story & Script Studio</option>
+   <option>Voice & Audio Studio</option>
+   <option>Video Editing Studio</option>
+   <option>Research Studio</option>
   </select>
+  <label>Visual Style</label>
+  <select id="style">
+   <option>Realistic</option><option>2D</option>
+   <option>3D</option><option>Anime</option>
+   <option>Cartoon</option><option>Cinematic</option>
+  </select>
+ </div>
 
-  <div id="manual" style="display:none">
-    <label>AI Studio चुनें</label>
-    <select id="studio">
-      <option>Image Studio</option>
-      <option>Video Studio</option>
-      <option>Animation Studio</option>
-      <option>Story & Script Studio</option>
-      <option>Voice & Audio Studio</option>
-      <option>Video Editing Studio</option>
-    </select>
-    <label>Style चुनें</label>
-    <select id="style">
-      <option>Realistic</option><option>2D</option><option>3D</option>
-      <option>Anime</option><option>Cartoon</option><option>Cinematic</option>
-    </select>
+ <label>AI Model Selection</label>
+ <select id="model">
+  <option>Supreme Brain (Auto Select)</option>
+  <option>Image AI Model (API Required)</option>
+  <option>Video AI Model (API Required)</option>
+  <option>Text AI Model (API Required)</option>
+  <option>External AI Model (Integration Required)</option>
+ </select>
+
+ <button onclick="understandPrompt()">Understand Prompt</button>
+ <button class="secondary" onclick="clearPrompt()">Clear</button>
+ <div id="result"></div>
+ <p class="note">AI Model Selection अभी केवल विकल्प दिखाता है। कोई वास्तविक मॉडल कनेक्ट नहीं है।</p>
+</section>
+
+<!-- GENERATION SETTINGS -->
+<section class="panel">
+ <h2>🎬 Video Generation Settings</h2>
+ <label>Membership Plan</label>
+ <select id="plan" onchange="updateDuration()">
+  <option value="free">Free Plan</option>
+  <option value="premium">Premium Plan</option>
+ </select>
+ <label>Video Duration</label>
+ <select id="duration"></select>
+ <div id="durationInfo" class="note"></div>
+ <p class="note">यह केवल Demo Limit Selector है। असली Free/Premium सीमा लागू करने के लिए Login, Database और Backend में भी जाँच जरूरी है।</p>
+</section>
+
+<!-- AI SYSTEMS -->
+<section class="panel">
+ <h2>⚡ Main AI Systems</h2>
+ <div class="grid">
+  <div class="card"><b>Knowledge Supreme Brain AI</b><small>Main Controller & Task Planner</small></div>
+  <div class="card"><b>Knowledge Super AI X</b><small>AI Assistant</small></div>
+  <div class="card"><b>Eternal Memory Engine</b><small>Memory System – Backend Required</small></div>
+  <div class="card"><b>Knowledge Research AI X</b><small>Research & Fact Checking</small></div>
+  <div class="card"><b>AI Council System</b><small>Multiple AI Comparison – API Required</small></div>
+ </div>
+</section>
+
+<!-- 90 FEATURES -->
+<section class="panel">
+ <h2>🎨 AI Studios – 90 Features</h2>
+ <p class="note">पुरानी 90 फीचर्स की सूची सुरक्षित रखी गई है।</p>
+ <div id="studios"></div>
+</section>
+
+<!-- VIDEO PREVIEW -->
+<section class="panel">
+ <h2>📹 Video Upload & Preview</h2>
+ <input type="file" id="videoFile" accept="video/*">
+ <video id="player" controls class="hidden" style="width:100%;margin-top:12px;border-radius:10px"></video>
+ <p class="note">यहाँ वीडियो Preview होगा। AI Video Analysis के लिए अलग Backend चाहिए।</p>
+</section>
+
+<!-- MEMORY -->
+<section class="panel">
+ <h2>👤 User Memory & Account</h2>
+ <div class="feature">Conversation History – Backend Planned</div>
+ <div class="feature">Character & Voice Preferences – Planned</div>
+ <div class="feature">My Images, Videos & Projects – Planned</div>
+ <div class="feature">Memory View, Edit & Export – Planned</div>
+ <div class="feature">Login & Account Management – Planned</div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="panel">
+ <h2>💎 Membership Plans</h2>
+ <div class="grid">
+  <div class="card">
+   <b>FREE PLAN</b>
+   <p>Rewarded Ad के बाद Video Generation का प्रस्तावित मौका।</p>
+   <small>Maximum 30 Seconds per Video</small>
   </div>
-
-  <button onclick="understandPrompt()">Understand My Prompt</button>
-  <div id="result"></div>
-  <p class="note">अभी यह केवल Prompt को स्थानीय रूप से समझने का Demo है। वास्तविक AI Generation के लिए API जोड़नी होगी।</p>
-</section>
-
-<section class="panel">
-  <h2>⚡ Main AI Systems</h2>
-  <div class="grid">
-    <div class="card"><b>Knowledge Supreme Brain AI</b><small>मुख्य Controller और Task Planner</small></div>
-    <div class="card"><b>Knowledge Super AI X</b><small>बातचीत और AI Assistant</small></div>
-    <div class="card"><b>Eternal Memory Engine</b><small>यूज़र की अनुमति से Memory</small></div>
-    <div class="card"><b>Knowledge Research AI X</b><small>Research और Fact Checking</small></div>
-    <div class="card"><b>AI Council System</b><small>अलग AI के परिणामों की तुलना</small></div>
+  <div class="card">
+   <b>PREMIUM PLAN</b>
+   <p>30 Days Membership</p>
+   <small>15 Videos Daily • Maximum 5 Minutes per Video • No Generation Ads</small>
   </div>
-</section>
-
-<section class="panel">
-  <h2>🎨 AI Studios – 90 Features</h2>
-  <div id="studios"></div>
-</section>
-
-<section class="panel">
-  <h2>🎬 Video Upload & Analysis</h2>
-  <input type="file" id="videoFile" accept="video/*">
-  <video id="player" controls style="display:none;width:100%;margin-top:12px;border-radius:10px"></video>
-  <p class="note">यहाँ अभी वीडियो Preview उपलब्ध है। AI Video और Audio Analysis के लिए अलग AI Backend चाहिए।</p>
-</section>
-
-<section class="panel">
-  <h2>👤 User Memory & Account</h2>
-  <div class="feature">Conversation History – Planned</div>
-  <div class="feature">Character और Voice Preferences – Planned</div>
-  <div class="feature">My Images, Videos और Projects – Planned</div>
-  <div class="feature">Memory View, Edit, Export और Delete – Planned</div>
-  <p class="note">यूज़र की Memory सुरक्षित रखने के लिए Login और Database जरूरी हैं।</p>
-</section>
-
-<section class="panel">
-  <h2>💎 Membership Plans</h2>
-  <div class="grid">
-    <div class="card">
-      <b>FREE PLAN</b>
-      <p>Rewarded Ad के बाद एक Video Generation का मौका।</p>
-      <small>प्रति वीडियो अधिकतम 30 सेकंड</small>
-    </div>
-    <div class="card">
-      <b>PREMIUM PLAN</b>
-      <p>30 दिन की Membership</p>
-      <small>15 Videos प्रतिदिन • प्रति वीडियो अधिकतम 2 मिनट • Generation पर Ads नहीं</small>
-    </div>
-  </div>
-  <p class="note">Payment, Ads और Membership अभी केवल प्रस्तावित सुविधाएँ हैं।</p>
+ </div>
+ <p class="note">Payment, Ads और Membership अभी सक्रिय नहीं हैं। इनके लिए अलग सिस्टम बनाना होगा।</p>
 </section>
 
 </main>
 
 <footer>
-  KNOWLEDGE FUN AI STUDIO<br>
-  Your Creative AI Universe
+ KNOWLEDGE FUN AI STUDIO<br>
+ SUPREME BRAIN EDITION
 </footer>
 
 <script>
+
+// 1. SUPREME BRAIN CONTROL
+let brainOn = true;
+
+function toggleBrain(){
+ brainOn = !brainOn;
+ const status = document.getElementById("brainStatus");
+ const button = document.getElementById("brainButton");
+
+ if(brainOn){
+  status.textContent = "● Brain ONLINE";
+  status.className = "status";
+  button.textContent = "Turn Brain OFF";
+  document.getElementById("brainText").textContent = "System Active";
+ }else{
+  status.textContent = "● Brain OFFLINE";
+  status.className = "status off";
+  button.textContent = "Turn Brain ON";
+  document.getElementById("brainText").textContent = "System Paused";
+ }
+}
+
+// 2. ORIGINAL 90 FEATURES
 const data = [
 ["AI Image Studio",[
 "AI Image Generator","Realistic Image Generator","2D Image Generator",
@@ -187,47 +265,114 @@ const data = [
 ];
 
 const container = document.getElementById("studios");
+let totalFeatures = 0;
+
 data.forEach((group,index)=>{
-  const section = document.createElement("div");
-  section.innerHTML = "<h3>"+(index+1)+". "+group[0]+"</h3>";
-  group[1].forEach(name=>{
-    const item = document.createElement("div");
-    item.className="feature";
-    item.textContent="✦ "+name+"  •  Planned";
-    section.appendChild(item);
-  });
-  container.appendChild(section);
+ const section = document.createElement("div");
+ const heading = document.createElement("h3");
+ heading.textContent = (index+1)+". "+group[0];
+ section.appendChild(heading);
+
+ group[1].forEach(name=>{
+  totalFeatures++;
+  const item = document.createElement("div");
+  item.className = "feature";
+  item.textContent = "✦ "+name+" • Planned";
+  section.appendChild(item);
+ });
+ container.appendChild(section);
 });
 
+// 3. MODE CONTROL
 document.getElementById("mode").addEventListener("change",function(){
-  document.getElementById("manual").style.display =
-    this.value==="Manual" ? "block" : "none";
+ document.getElementById("manual").classList.toggle("hidden",this.value!=="Manual");
+ document.getElementById("modeText").textContent=this.value;
 });
 
+// 4. PROMPT UNDERSTANDING DEMO
 function understandPrompt(){
-  const prompt=document.getElementById("prompt").value.trim();
-  const mode=document.getElementById("mode").value;
-  const result=document.getElementById("result");
-  if(!prompt){
-    result.textContent="पहले अपना Prompt लिखें।";
-    return;
-  }
-  result.textContent =
-    "Prompt प्राप्त हुआ!\n"+
-    "Mode: "+mode+"\n"+
-    "आपका काम: "+prompt+"\n\n"+
-    "यह Prototype Demo है। अभी कोई वास्तविक AI Generation नहीं हुई है। API कनेक्शन अगले चरण में जोड़ा जाएगा।";
+ if(!brainOn){
+  document.getElementById("result").textContent="Supreme Brain OFFLINE है। पहले Brain ON करें।";
+  return;
+ }
+
+ const prompt=document.getElementById("prompt").value.trim();
+ const mode=document.getElementById("mode").value;
+ const model=document.getElementById("model").value;
+ const result=document.getElementById("result");
+
+ if(!prompt){
+  result.textContent="पहले अपना Prompt लिखें।";
+  return;
+ }
+
+ let detected="General Creative Task";
+ const p=prompt.toLowerCase();
+
+ if(/image|photo|picture|इमेज|फोटो/.test(p)) detected="Image Studio";
+ else if(/video|animation|वीडियो|एनिमेशन/.test(p)) detected="Video / Animation Studio";
+ else if(/story|script|कहानी|स्क्रिप्ट/.test(p)) detected="Story & Script Studio";
+ else if(/voice|audio|आवाज|म्यूजिक/.test(p)) detected="Voice & Audio Studio";
+
+ if(mode==="Manual"){
+  detected=document.getElementById("studio").value;
+ }
+
+ const style=mode==="Manual"?document.getElementById("style").value:"Automatic Style Detection";
+
+ result.textContent=
+ "✓ Prompt प्राप्त हुआ!\n\n"+
+ "Brain: ONLINE\n"+
+ "Mode: "+mode+"\n"+
+ "Detected Studio: "+detected+"\n"+
+ "Selected Model: "+model+"\n"+
+ "Visual Style: "+style+"\n"+
+ "Total Listed Features: "+totalFeatures+"\n\n"+
+ "तुम्हारा Prompt:\n"+prompt+
+ "\n\nयह अभी Local Demo है। असली AI परिणाम के लिए API और Backend कनेक्शन जरूरी है।";
 }
 
+function clearPrompt(){
+ document.getElementById("prompt").value="";
+ document.getElementById("result").textContent="";
+}
+
+// 5. VIDEO DURATION LIMIT DEMO
+function updateDuration(){
+ const plan=document.getElementById("plan").value;
+ const duration=document.getElementById("duration");
+ const info=document.getElementById("durationInfo");
+ duration.innerHTML="";
+
+ const max=plan==="free"?30:300;
+ const options=plan==="free"?[5,10,15,20,30]:[30,60,90,120,180,240,300];
+
+ options.forEach(seconds=>{
+  const option=document.createElement("option");
+  option.value=seconds;
+  option.textContent=seconds>=60?(seconds/60)+" Minute"+(seconds>=120?"s":""):seconds+" Seconds";
+  duration.appendChild(option);
+ });
+
+ info.textContent=plan==="free"
+ ?"Free Plan: Maximum 30 Seconds."
+ :"Premium Plan: Maximum 5 Minutes.";
+}
+
+updateDuration();
+
+// 6. VIDEO PREVIEW
 document.getElementById("videoFile").addEventListener("change",function(){
-  const file=this.files[0];
-  if(file){
-    const player=document.getElementById("player");
-    player.src=URL.createObjectURL(file);
-    player.style.display="block";
-  }
+ const file=this.files[0];
+ if(file){
+  const player=document.getElementById("player");
+  if(player.src.startsWith("blob:")) URL.revokeObjectURL(player.src);
+  player.src=URL.createObjectURL(file);
+  player.classList.remove("hidden");
+ }
 });
+
 </script>
 </body>
-                                     </html>
+  </html>
   
